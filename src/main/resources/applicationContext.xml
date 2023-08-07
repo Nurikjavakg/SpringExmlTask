@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+   <context:property-placeholder location=" application.properties"/>
+
+    <bean id="java"
+          class="peaksoft.Java">
+    </bean>
+    <bean id="js"
+          class="peaksoft.Js">
+    </bean>
+    <bean id="python"
+          class="peaksoft.Python">
+    </bean>
+<!--    <bean id="group"-->
+<!--          class="peaksoft.Group">-->
+<!--        <constructor-arg ref="java">-->
+<!--        </constructor-arg>-->
+    <bean id="group"
+          class="peaksoft.Group">
+        <property name="course" ref="java">
+        </property>
+        <property name="name" value="${name}">
+        </property>
+    </bean>
+
+
+</beans>
